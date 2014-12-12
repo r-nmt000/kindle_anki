@@ -4,7 +4,7 @@ javascript:(function(){
   $('.yourHighlight').each(function(){
     var cn = $(this).attr('class');
     var line = '';
-    title = '"'+$(this).prevAll('.yourHighlightsHeader:first').find('.title').text().replace(/\"/g,'\"\"')+'";';
+    title = '"'+$(this).prevAll('.yourHighlightsHeader:first > .title').text().replace(/\"/g,'\"\"')+'";';
     line += '"'+$(this).find('.highlight').text().replace(/\"/g,'\"\"')+'";';
     line += title;
     text += line.replace(/,$/,'')+'\r\n';
