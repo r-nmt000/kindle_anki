@@ -1,15 +1,12 @@
 javascript:(function(){
   var text  = '';
   var title = '';
-  $('.title, .highlight').each(function(){
+  $('.yourHighlight').each(function(){
     var cn = $(this).attr('class');
     var line = '';
-    if(cn =='title'){
-      title = '"'+$(this).text().replace(/\"/g,'\"\"')+'";';
-    }else if(cn == 'highlight'){
-      line += '"'+$(this).text().replace(/\"/g,'\"\"')+'";';
-      line += title;
-    }
+    title = '"'+$(this).prevAll('.yourHighlightsHeader:first').find('.title').text().replace(/\"/g,'\"\"')+'";';
+    line += '"'+$(this).find('.highlight').text().replace(/\"/g,'\"\"')+'";';
+    line += title;
     text += line.replace(/,$/,'')+'\r\n';
   });
   if(text){
